@@ -1,47 +1,56 @@
-# pytempconverter 🌡️
+# pytempconverter
+A Python module for converting temperatures between Celsius, Fahrenheit, Kelvin, Rankine, and Reaumur.
 
-A Python module for converting temperatures between Celsius, Fahrenheit, and Kelvin.
+## Project Structure
+
+```
+pytempconverter
+├── src
+│   ├── temperature_converter.py
+│   └── __init__.py
+├── setup.py
+└── requirements.txt
+```
 
 ## Usage
 
-1. Import the `TemperatureConverter` class from `temperature_converter.py`:
+1. Import the `TemperatureConverter` class:
 
     ```python
-    from pytempconverter import TemperatureConverter, TemperatureUnit
+    from pytempconverter import TemperatureConverter
     ```
 
-2. Use the `convert_between_units` method to convert temperatures:
+2. Use the `convert` method to convert temperatures:
 
     ```python
     try:
-        result = TemperatureConverter.convert_between_units(100, TemperatureUnit.CELSIUS, TemperatureUnit.FAHRENHEIT, precision=2)
+        result = TemperatureConverter.convert(100, 'Celsius', 'Fahrenheit', precision=2)
         print(f"Result: {result}")
-    except TemperatureConversionError as e:
+    except Exception as e:
         print(f"Error: {e}")
     ```
 
 ## Custom Errors 🚫
 
 - `UnsupportedUnitError`: Raised when an unsupported temperature unit conversion is requested.
-- `TemperatureOutOfRangeError`: Raised when the temperature value is outside the valid range.
-- `TemperatureConversionError`: Raised for general errors in temperature conversion.
-- `InvalidPrecisionError`: Raised when the precision value is invalid.
 - `SameUnitConversionError`: Raised when attempting to convert between the same temperature units.
 
 ## Temperature Units 🌐
 
-- Celsius (`TemperatureUnit.CELSIUS`)
-- Fahrenheit (`TemperatureUnit.FAHRENHEIT`)
-- Kelvin (`TemperatureUnit.KELVIN`)
+- Celsius (`'Celsius'`)
+- Fahrenheit (`'Fahrenheit'`)
+- Kelvin (`'Kelvin'`)
+- Rankine (`'Rankine'`)
+- Reaumur (`'Reaumur'`)
 
 ## Unit Conversions 🔄
 
 The following conversions are supported:
 
-- Celsius to Fahrenheit and vice versa
-- Celsius to Kelvin and vice versa
-- Fahrenheit to Kelvin and vice versa
-
+- Celsius to Fahrenheit, Kelvin, Rankine, Reaumur and vice versa
+- Fahrenheit to Kelvin, Rankine, Reaumur and vice versa
+- Kelvin to Rankine, Reaumur and vice versa
+- Rankine to Reaumur and vice versa
 
 ## Contribution 🤝
 
